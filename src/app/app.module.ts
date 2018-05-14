@@ -9,13 +9,17 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NavigationModule } from './navigation/navigation.module';
 import { FooterComponent } from './layout/footer/footer.component';
+import { UserService } from './service/user.service';
+import { HttpClientModule } from '@angular/common/http';
+import { TesterComponent } from './tester/tester.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    TesterComponent
   ],
   imports: [
     BrowserModule,
@@ -23,9 +27,10 @@ import { FooterComponent } from './layout/footer/footer.component';
     NgbModule.forRoot(),
     FormsModule,
     RouterModule,
-    NavigationModule
+    NavigationModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

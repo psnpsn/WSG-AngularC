@@ -6,13 +6,15 @@ import { LoginComponent } from './navigation/login/login.component';
 import { GuardComponent } from './navigation/guard/guard.component';
 import { SignupComponent } from './navigation/signup/signup.component';
 import { SearchComponent } from './navigation/search/search.component';
+import { TesterComponent } from './tester/tester.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: GuardComponent },
   { path: 'register', component: SignupComponent },
-  { path: 'search', component: SearchComponent }
+  { path: 'search', component: SearchComponent },
+  { path: 'test', component: TesterComponent }
 ];
 
 @NgModule({
