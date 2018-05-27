@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { UserInfoService } from '../../service/user-info.service';
 
 @Component({
     selector: 'app-navbar',
@@ -10,7 +11,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(public location: Location, private element: ElementRef) {
+    constructor(public location: Location, private element: ElementRef, private userInfoService: UserInfoService) {
         this.sidebarVisible = false;
     }
 
@@ -43,5 +44,9 @@ export class NavbarComponent implements OnInit {
         } else {
             this.sidebarClose();
         }
+    }
+
+    isLoggedIn(){
+        return this.userInfoService.isLoggedIn();
     }
 }

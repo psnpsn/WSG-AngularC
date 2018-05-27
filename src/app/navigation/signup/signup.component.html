@@ -4,24 +4,54 @@
   <div class="container">
       <div class="col-md-4 content-center">
           <div class="card card-login card-plain">
-              <form class="form" method="" action="" #userRegistrationForm="ngForm">
+              <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)" class="form" method="" action="" #userRegistrationForm="ngForm">
                   
                   <div class="content">
-                    <div class="input-group form-group-no-border input-sm" [ngClass]="{'input-group-focus':focus===true}">
+                    <!-- INPUT Email -->
+                    <div class="input-group form-group-no-border input-sm" [ngClass]="{'input-group-focus':focus===true, 'has-danger': !rForm.controls['username'].valid && rForm.controls['username'].touched, 'has-success' : rForm.controls['username'].valid && rForm.controls['username'].touched }">
                       <div class="input-group-prepend">
                           <span class="input-group-text">  <i class="fa fa-user-o"></i></span>
                       </div>
-                        <input type="text" class="form-control" placeholder="Email... ( this is your login )" (focus)="focus=true" (blur)="focus=false" name="Username" #Username [(ngModel)]="user.username">
+                        <input type="text" class="form-control" placeholder="Email..." (focus)="focus=true" (blur)="focus=false" name="Username" #Username [(ngModel)]="user.username" formControlName="username" required>
                     </div>
-                    <div class="input-group form-group-no-border input-sm" [ngClass]="{'input-group-focus':focus1===true}">
+                    <!-- INPUT Password -->
+                    <div class="input-group form-group-no-border input-sm" [ngClass]="{'input-group-focus':focus===true, 'has-danger': !rForm.controls['password'].valid && rForm.controls['password'].touched, 'has-success' : rForm.controls['password'].valid && rForm.controls['password'].touched }">
                       <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-pencil-square-o"></i></span>
                       </div>
-                        <input type="password" placeholder="Password..." class="form-control" (focus)="focus1=true" (blur)="focus1=false" name="Password" #Password [(ngModel)]="user.password" required>
+                        <input type="password" placeholder="Password..." class="form-control" (focus)="focus1=true" (blur)="focus1=false" name="Password" #Password [(ngModel)]="user.password" formControlName="password" required>
+                    </div>
+                    <!-- INPUT Nom -->
+                    <div class="input-group form-group-no-border input-sm" [ngClass]="{'input-group-focus':focus===true, 'has-danger': !rForm.controls['nom'].valid && rForm.controls['nom'].touched, 'has-success' : rForm.controls['nom'].valid && rForm.controls['nom'].touched }">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">  <i class="fa fa-user-o"></i></span>
+                            </div>
+                              <input type="text" class="form-control" placeholder="Nom..." (focus)="focus=true" (blur)="focus=false" name="Nom" #Nom [(ngModel)]="user.nom" formControlName="nom">
+                    </div>
+                    <!-- INPUT Prenom -->
+                    <div class="input-group form-group-no-border input-sm" [ngClass]="{'input-group-focus':focus===true, 'has-danger': !rForm.controls['prenom'].valid && rForm.controls['prenom'].touched, 'has-success' : rForm.controls['prenom'].valid && rForm.controls['prenom'].touched }">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">  <i class="fa fa-user-o"></i></span>
+                            </div>
+                              <input type="text" class="form-control" placeholder="Prenom..." (focus)="focus=true" (blur)="focus=false" name="Prenom" #Prenom [(ngModel)]="user.prenom" formControlName="prenom">
+                    </div>
+                    <!-- INPUT Adresse -->
+                    <div class="input-group form-group-no-border input-sm" [ngClass]="{'input-group-focus':focus===true, 'has-danger': !rForm.controls['adresse'].valid && rForm.controls['adresse'].touched, 'has-success' : rForm.controls['adresse'].valid && rForm.controls['adresse'].touched }">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">  <i class="fa fa-user-o"></i></span>
+                            </div>
+                              <input type="text" class="form-control" placeholder="Address.." (focus)="focus=true" (blur)="focus=false" name="Adresse" #Adresse [(ngModel)]="user.adresse" formControlName="adresse">
+                    </div>
+                    <!-- INPUT NumTel -->
+                    <div class="input-group form-group-no-border input-sm" [ngClass]="{'input-group-focus':focus===true, 'has-danger': !rForm.controls['numTel'].valid && rForm.controls['numTel'].touched, 'has-success' : rForm.controls['numTel'].valid && rForm.controls['numTel'].touched }">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">  <i class="fa fa-user-o"></i></span>
+                            </div>
+                              <input type="tel" class="form-control" placeholder="Téléphone.." (focus)="focus=true" (blur)="focus=false" name="NumTel" #NumTel [(ngModel)]="user.numTel" formControlName="numTel">
                     </div>
                   </div>
                   <div class="footer text-center">
-                      <button class="btn btn-primary btn-round btn-lg btn-block" (click)="register()">Register</button>
+                      <button class="btn btn-primary btn-round btn-lg btn-block" [disabled]="!rForm.valid">Register</button>
                   </div>
                   <div class="text-center">
                       <h6>

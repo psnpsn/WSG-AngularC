@@ -1,17 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import * as Rellax from 'rellax';
+import { UserInfoService } from '../../service/user-info.service';
 
 @Component({
   selector: 'app-guard',
-  templateUrl: './guard.component.html',
-  styleUrls: ['./guard.component.scss']
+  templateUrl: './home.component.html'
 })
-export class GuardComponent implements OnInit {
+export class HomeComponent implements OnInit {
   data: Date = new Date();
   focus;
   focus1;
 
-  constructor() { }
+
+  constructor(private userInfoService : UserInfoService) {
+    
+    console.log(userInfoService.getStoredToken());
+    console.log(userInfoService.isLoggedIn());
+   }
 
   ngOnInit() {
     const rellaxHeader = new Rellax('.rellax-header');

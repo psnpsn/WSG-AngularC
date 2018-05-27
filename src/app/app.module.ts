@@ -10,8 +10,14 @@ import { RouterModule } from '@angular/router';
 import { NavigationModule } from './navigation/navigation.module';
 import { FooterComponent } from './layout/footer/footer.component';
 import { UserService } from './service/user.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TesterComponent } from './tester/tester.component';
+import { AppConfig } from './app-config';
+import { ApiRequestService } from './service/api-request.service';
+import { UserInfoService } from './service/user-info.service';
+import { AuthGuard } from './service/auth-guard.guard';
+import { Interceptor } from './app.interceptor';
+import { LocationService } from './service/location.service';
 
 
 @NgModule({
@@ -30,7 +36,19 @@ import { TesterComponent } from './tester/tester.component';
     NavigationModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [
+    UserService,
+    AppConfig,
+    ApiRequestService,
+    UserInfoService,
+    AuthGuard,
+    LocationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

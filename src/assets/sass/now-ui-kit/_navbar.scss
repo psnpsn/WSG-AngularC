@@ -43,7 +43,7 @@
 
         .nav-link:not(.btn){
             text-transform: uppercase;
-            font-size: $font-size-base;
+            font-size: $font-size-small;
             padding: $padding-base-vertical $padding-base-horizontal;
             line-height: $line-height-nav-link;
 
@@ -169,7 +169,7 @@
 }
 
 .bg-primary{
-    background-color: $primary-color !important;
+    background-color: $primary-navbar !important;
 }
 
 .bg-info{
