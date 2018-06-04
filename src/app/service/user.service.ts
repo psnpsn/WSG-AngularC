@@ -15,7 +15,7 @@ export class UserService {
 
   private url = 'http://localhost:8090/';
 
-  public getUsers(): Observable<User[]> {
+  public getUser(): Observable<User[]> {
     return this.http.get<User[]>(this.url + 'clients');
   }
 
@@ -31,7 +31,8 @@ export class UserService {
         "token" : {
           "access_token" : "",
           "refresh_token" : "",
-          "expires_in" : ""
+          "expires_in" : "",
+          "username" : "",
         }
       };
       let data = "grant_type=password" + "&username=" + username + "&password=" + password;
@@ -48,7 +49,8 @@ export class UserService {
             "token" : {
               "access_token" : jsonResp.access_token,
               "refresh_token" : jsonResp.refresh_token,
-              "expires_in" : jsonResp.expires_in
+              "expires_in" : jsonResp.expires_in,
+              "username" :jsonResp.username
             }
           };
           console.log(loginInfoReturn);
@@ -56,7 +58,7 @@ export class UserService {
         }
         else {
           loginInfoReturn = {
-            "success" : false
+            "success" : false,
           };
         }
         loginDataSubject.next(loginInfoReturn);
@@ -64,7 +66,7 @@ export class UserService {
       },
       err => {
         loginInfoReturn = {
-          "success": false
+          "success": false,
         };
       });
       return loginDataSubject;

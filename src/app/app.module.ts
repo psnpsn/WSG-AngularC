@@ -13,11 +13,10 @@ import { UserService } from './service/user.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TesterComponent } from './tester/tester.component';
 import { AppConfig } from './app-config';
-import { ApiRequestService } from './service/api-request.service';
 import { UserInfoService } from './service/user-info.service';
 import { AuthGuard } from './service/auth-guard.guard';
 import { Interceptor } from './app.interceptor';
-import { LocationService } from './service/location.service';
+import { SearchService } from './service/search.service';
 
 
 @NgModule({
@@ -39,10 +38,9 @@ import { LocationService } from './service/location.service';
   providers: [
     UserService,
     AppConfig,
-    ApiRequestService,
     UserInfoService,
     AuthGuard,
-    LocationService,
+    SearchService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,

@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit() {
+    console.log(Date.now().toLocaleString());
     const rellaxHeader = new Rellax('.rellax-header');
 
     const body = document.getElementsByTagName('body')[0];

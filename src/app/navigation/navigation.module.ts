@@ -10,6 +10,8 @@ import { SearchComponent } from './search/search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './logout/logout.component';
 import { HomeComponent } from './home/home.component';
+import { ResultComponent } from './search/result/result.component';
+import { DefaultComponent } from './search/default/default.component';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { HomeComponent } from './home/home.component';
     SignupComponent,
     SearchComponent,
     LogoutComponent,
+    ResultComponent,
+    DefaultComponent,
   ]
 })
 export class NavigationModule { }

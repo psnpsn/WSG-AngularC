@@ -4,6 +4,7 @@ export interface TokenInStorage{
   access_token: string;
   refresh_token: string;
   expires_in: string;
+  username : string;
 }
 
 export interface LoginInfoInStorage{
@@ -55,6 +56,14 @@ export class UserInfoService {
     let userObj:TokenInStorage = this.getUserInfo();
     if (userObj !== null){
         return userObj.access_token;
+    }
+    return null;
+  }
+
+  getUsername():string|null {
+    let userObj:TokenInStorage = this.getUserInfo();
+    if (userObj !== null){
+        return userObj.username;
     }
     return null;
   }

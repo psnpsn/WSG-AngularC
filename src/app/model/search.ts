@@ -1,13 +1,16 @@
 import { Time } from "@angular/common";
+import { Airport } from "./airport";
+import { Town } from "./town";
 
 export class Search {
-    from: string;
-    to: string;
-    whenDate: Date;
-    whenTime: Time;
-    adults:number;
+    from: Airport;
+    to: Town;
+    searchedDate: Date;
+    searchedTime: String;
+    adult:number;
     children:number;
-    infants:number;
-    searchDate: Date;
+    infant:number;
+    dateQuery: Date;
+    clientUsername: string;
 
 }

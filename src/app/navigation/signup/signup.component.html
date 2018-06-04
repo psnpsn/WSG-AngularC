@@ -26,14 +26,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">  <i class="fa fa-user-o"></i></span>
                             </div>
-                              <input type="text" class="form-control" placeholder="Nom..." (focus)="focus=true" (blur)="focus=false" name="Nom" #Nom [(ngModel)]="user.nom" formControlName="nom">
+                              <input type="text" class="form-control" placeholder="Last Name..." (focus)="focus=true" (blur)="focus=false" name="Nom" #Nom [(ngModel)]="user.nom" formControlName="nom">
                     </div>
                     <!-- INPUT Prenom -->
                     <div class="input-group form-group-no-border input-sm" [ngClass]="{'input-group-focus':focus===true, 'has-danger': !rForm.controls['prenom'].valid && rForm.controls['prenom'].touched, 'has-success' : rForm.controls['prenom'].valid && rForm.controls['prenom'].touched }">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">  <i class="fa fa-user-o"></i></span>
                             </div>
-                              <input type="text" class="form-control" placeholder="Prenom..." (focus)="focus=true" (blur)="focus=false" name="Prenom" #Prenom [(ngModel)]="user.prenom" formControlName="prenom">
+                              <input type="text" class="form-control" placeholder="First Name..." (focus)="focus=true" (blur)="focus=false" name="Prenom" #Prenom [(ngModel)]="user.prenom" formControlName="prenom">
                     </div>
                     <!-- INPUT Adresse -->
                     <div class="input-group form-group-no-border input-sm" [ngClass]="{'input-group-focus':focus===true, 'has-danger': !rForm.controls['adresse'].valid && rForm.controls['adresse'].touched, 'has-success' : rForm.controls['adresse'].valid && rForm.controls['adresse'].touched }">
@@ -47,7 +47,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">  <i class="fa fa-user-o"></i></span>
                             </div>
-                              <input type="tel" class="form-control" placeholder="Téléphone.." (focus)="focus=true" (blur)="focus=false" name="NumTel" #NumTel [(ngModel)]="user.numTel" formControlName="numTel">
+                              <input type="tel" class="form-control" placeholder="Phone Number.." (focus)="focus=true" (blur)="focus=false" name="NumTel" #NumTel [(ngModel)]="user.numTel" formControlName="numTel">
                     </div>
                   </div>
                   <div class="footer text-center">

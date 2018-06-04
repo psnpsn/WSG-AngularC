@@ -9,14 +9,14 @@
                     <div class="pu-do row">
                       <div class="pu-container col">
                             <div class="persent-one">
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    <input type="text" name="dep" class="textboxstyle" id="dep" placeholder="From City or airport" [(ngModel)]="search.from" formControlName="from" [ngbTypeahead]="srch">
+                                    <i class="fa fa-plane" aria-hidden="true"></i>
+                                    <input type="text" name="dep" class="textboxstyle" id="dep" placeholder="From Airport" [(ngModel)]="from" formControlName="from" [ngbTypeahead]="Airportsrch">
                             </div>
                       </div>
                       <div class="do-container col">
                             <div class="persent-one">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    <input type="text" name="arv" class="textboxstyle" id="arv" placeholder="To City or airport" [(ngModel)]="search.to" formControlName="to" [ngbTypeahead]="srch">
+                                    <input type="text" name="arv" class="textboxstyle" id="arv" placeholder="To City" [(ngModel)]="to" formControlName="to" [ngbTypeahead]="Townsrch">
                             </div>
                       </div>
                       
@@ -25,38 +25,38 @@
                         <div class="do-container col-4">
                             <div class="persent-one">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                                <input type="date" name="whendate" class="textboxstyle"  id="whendate" placeholder="Departure date" [(ngModel)]="search.whenDate" formControlName="whenDate">
+                                <input type="date" name="whendate" class="textboxstyle"  id="whendate" placeholder="Departure date" [(ngModel)]="search.searchedDate" formControlName="whenDate">
                             </div>
                         </div>
                         <div class="do-container col-2">
                             <div class="persent-one">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                                <input type="time" name="whentime" class="textboxstyle"  id="whentime" placeholder="Departure time" [(ngModel)]="search.whenTime" formControlName="whenTime">
+                                <input type="time" name="whentime" class="textboxstyle"  id="whentime" placeholder="Departure time" [(ngModel)]="search.searchedTime" formControlName="whenTime">
                             </div>
                          </div>
                                 <div class="col">
                                     <label for="adults">Adults</label>
-                                    <select class="form-control" id="adults" name="adults" [(ngModel)]="search.adults" formControlName="adults">
-                                        <option *ngFor="let pa of numbers" [value]="pa+1">{{ pa+1 }}</option>
+                                    <select class="form-control" id="adults" name="adults" [(ngModel)]="search.adult" formControlName="adults">
+                                        <option *ngFor="let pa of numbers" [ngValue]=pa>{{ pa }}</option>
                                     </select>
                                 </div>
                                 <div class="col">
                                     <label for="childen">Children</label>
                                     <select class="form-control" id="childen" name="children" [(ngModel)]="search.children" formControlName="children">
-                                        <option *ngFor="let pc of numbers" [value]="pc">{{ pc }}</option>
+                                        <option *ngFor="let pc of numbers" [ngValue]=pc>{{ pc }}</option>
                                     </select>
                                 </div>
                                 <div class="col">
                                     <label for="infants">Infants</label>
-                                    <select class="form-control" id="infants" name="infants" [(ngModel)]="search.infants" formControlName="infants">
-                                        <option *ngFor="let pi of numbers" [value]="pi">{{ pi }}</option>
+                                    <select class="form-control" id="infants" name="infants" [(ngModel)]="search.infant" formControlName="infants">
+                                        <option *ngFor="let pi of numbers" [ngValue]=pi>{{ pi }}</option>
                                     </select>
                                 </div>
                         
                     </div>
                     <div class="search-btn row">
                         <div class="form-group">
-                                <button class="btn btn-success btn-round btn-lg btn-block" [disabled]="!rForm.valid">Search</button>
+                                <button class="btn btn-success btn-round btn-lg btn-block" [disabled]="!rForm.valid" [routerLink]="['./result']">Search</button>
                         </div>
                     </div>
                 </form>
@@ -64,38 +64,4 @@
             </div>
         </div>
     </div>
-    <div class="section section-about-us">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 ml-auto mr-auto text-center">
-                    <h2 class="title">Who we are?</h2>
-                    <h5 class="description"><span style="color:#189ad3">The Worldsoft Group</span> are a leading provider of innovative and sophisticated travel technology solutions, trusted by key players across North Africa and the Middle East.</h5>
-                </div>
-            </div>
-            <div class="separator separator-primary"></div>
-            <div class="section-story-overview">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="image-container image-left" style="background-image: url('assets/img/desc3.jpg')">
-                            <!-- First image on the left side -->
-                            
-                        </div>
-                        <!-- Second image on the left side of the article -->
-                        <div class="image-container" style="background-image: url('assets/img/desc1.jpg')"></div>
-                    </div>
-                    <div class="col-md-5">
-                        <!-- First image on the right side, above the article -->
-                        <div class="image-container image-right" style="background-image: url('assets/img/desc2.jpg')"></div>
-                        <h3> KNOWLEDGE & EXPERIENCE MATTER... </h3>
-                        <p>The Worldsoft Group is a specialised IT development company that focuses on delivering exceptional technology and software solutions to the travel industry.
-                        </p>
-                        <p>
-                          As the leading experts across the Middle East and Africa The Worldsoft Group conceive, develop and distribute web and application software for large, medium and small Travel Agents and Tour Operators.
-                        </p>
-                        <p>Between our Consulting and Development teams we have more than 130 years experience thereby ensuring that our clients needs are clearly identified and the most appropriate technology deployed. Working only to build long term relationships with our clients is what differentiates the Worldsoft Group, and it is for this reason that we offer unparalleled after sales support.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-  </div>
+    <router-outlet></router-outlet>

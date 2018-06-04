@@ -9,6 +9,8 @@ import { TesterComponent } from './tester/tester.component';
 import { AuthGuard } from './service/auth-guard.guard';
 import { HomeComponent } from './navigation/home/home.component';
 import { LogoutComponent } from './navigation/logout/logout.component';
+import { DefaultComponent } from './navigation/search/default/default.component';
+import { ResultComponent } from './navigation/search/result/result.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,7 +18,14 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'home', component: HomeComponent },
   { path: 'register', component: SignupComponent },
-  { path: 'search', component: SearchComponent, canActivate:[AuthGuard]},
+  { 
+    path: 'search', component: SearchComponent, canActivate:[AuthGuard],
+    children: [
+      { path: '', redirectTo: 'default', pathMatch: 'full' },
+      { path: 'default', component: DefaultComponent },
+      { path: 'result', component: ResultComponent }
+    ]
+  },
   { path: 'test', component: TesterComponent }
 ];
 

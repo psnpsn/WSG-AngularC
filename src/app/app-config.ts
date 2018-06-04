@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core";
 export class AppConfig {
 
     public msclientUrl: string = "http://localhost:8090/";
-    public mssearchUrl: string = "http://localhost:8091";
+    public mssearchUrl: string = "http://localhost:8091/";
 
 
     constructor(){

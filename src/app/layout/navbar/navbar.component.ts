@@ -26,6 +26,7 @@ export class NavbarComponent implements OnInit {
             toggleButton.classList.add('toggled');
         }, 500);
         html.classList.add('nav-open');
+        html.classList.remove('navbar-transparent');
 
         this.sidebarVisible = true;
     }

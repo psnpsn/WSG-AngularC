@@ -15,9 +15,10 @@ export class TesterComponent implements OnInit {
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getUsers().subscribe(
+    this.userService.getUser().subscribe(
       data => {
         this.dataSource = data;
+        console.log(data);
       }
     );
   }
