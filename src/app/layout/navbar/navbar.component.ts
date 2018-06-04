@@ -10,9 +10,11 @@ import { UserInfoService } from '../../service/user-info.service';
 export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
+    username: string ;
 
     constructor(public location: Location, private element: ElementRef, private userInfoService: UserInfoService) {
         this.sidebarVisible = false;
+        this.username = userInfoService.getUsername();
     }
 
     ngOnInit() {

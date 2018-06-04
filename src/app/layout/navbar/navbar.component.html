@@ -48,6 +48,9 @@
 <!-- USER LOGGED IN NAVBAR -->
 <nav [hidden]="!isLoggedIn()" class="navbar navbar-expand-lg bg-primary fixed-top" color-on-scroll="500">
         <div class="container">
+                <a class="navbar-brand" placement="bottom">
+                    welcome <em>{{ username }}</em>
+                </a>
           <div class="dropdown button-dropdown">
             <div ngbDropdown>
               <a class="dropdown-toggle" ngbDropdownToggle>
@@ -84,6 +87,12 @@
                           <p>Search</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                            <a class="nav-link" routerLink="/profile">
+                                <i class="fa fa-search"></i>
+                              <p>Profile</p>
+                            </a>
+                        </li>
                     <li class="nav-item">
                       <a class="nav-link" routerLink="/logout">
                         <p>Log Out</p>

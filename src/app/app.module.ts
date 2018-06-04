@@ -11,12 +11,13 @@ import { NavigationModule } from './navigation/navigation.module';
 import { FooterComponent } from './layout/footer/footer.component';
 import { UserService } from './service/user.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TesterComponent } from './tester/tester.component';
 import { AppConfig } from './app-config';
 import { UserInfoService } from './service/user-info.service';
 import { AuthGuard } from './service/auth-guard.guard';
 import { Interceptor } from './app.interceptor';
 import { SearchService } from './service/search.service';
+import { TransactionService } from './service/transaction.service';
+import { WhitespacePipe } from './whitespace.pipe';
 
 
 @NgModule({
@@ -24,7 +25,6 @@ import { SearchService } from './service/search.service';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    TesterComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +33,7 @@ import { SearchService } from './service/search.service';
     FormsModule,
     RouterModule,
     NavigationModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     UserService,
@@ -41,6 +41,7 @@ import { SearchService } from './service/search.service';
     UserInfoService,
     AuthGuard,
     SearchService,
+    TransactionService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,

@@ -7,6 +7,7 @@ import { Airport } from '../model/airport';
 import { Town } from '../model/town';
 import { SearchResult } from '../model/searchResult';
 import { BehaviorSubject } from 'rxjs';
+import { Transaction } from '../model/transaction';
 
 @Injectable()
 export class SearchService {
@@ -26,6 +27,11 @@ export class SearchService {
 
   saveSearch(search : Search):Observable<SearchResult>{
     return this.http.post<SearchResult>(this.config.mssearchUrl + "searchq", search);
+  }
+
+  saveTransaction(transaction : Transaction){
+    console.log("post");
+    return this.http.post(this.config.mstransactionUrl + "transaction", transaction);
   }
 
   sendResult(data) {

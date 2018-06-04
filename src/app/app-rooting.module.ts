@@ -5,12 +5,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LoginComponent } from './navigation/login/login.component';
 import { SignupComponent } from './navigation/signup/signup.component';
 import { SearchComponent } from './navigation/search/search.component';
-import { TesterComponent } from './tester/tester.component';
 import { AuthGuard } from './service/auth-guard.guard';
 import { HomeComponent } from './navigation/home/home.component';
 import { LogoutComponent } from './navigation/logout/logout.component';
 import { DefaultComponent } from './navigation/search/default/default.component';
 import { ResultComponent } from './navigation/search/result/result.component';
+import { ProfileComponent } from './navigation/profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'home', component: HomeComponent },
   { path: 'register', component: SignupComponent },
+  { path: 'profile', component: ProfileComponent, canActivate:[AuthGuard] },
   { 
     path: 'search', component: SearchComponent, canActivate:[AuthGuard],
     children: [
@@ -25,8 +26,7 @@ const routes: Routes = [
       { path: 'default', component: DefaultComponent },
       { path: 'result', component: ResultComponent }
     ]
-  },
-  { path: 'test', component: TesterComponent }
+  }
 ];
 
 @NgModule({

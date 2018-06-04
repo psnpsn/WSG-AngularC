@@ -12,6 +12,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { HomeComponent } from './home/home.component';
 import { ResultComponent } from './search/result/result.component';
 import { DefaultComponent } from './search/default/default.component';
+import { WhitespacePipe } from '../whitespace.pipe';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -23,6 +25,7 @@ import { DefaultComponent } from './search/default/default.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
+  exports: [WhitespacePipe],
   declarations: [
     HomeComponent,
     LoginComponent,
@@ -31,6 +34,8 @@ import { DefaultComponent } from './search/default/default.component';
     LogoutComponent,
     ResultComponent,
     DefaultComponent,
+    WhitespacePipe,
+    ProfileComponent,
   ]
 })
 export class NavigationModule { }

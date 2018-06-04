@@ -93,7 +93,7 @@ export class SearchComponent implements OnInit {
           debounceTime(200),
           distinctUntilChanged(),
           map(term => term.length < 2 ? []
-            : this.airports.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10)),
+            : this.airports.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 20)),
         );
       }
     );
@@ -113,7 +113,7 @@ export class SearchComponent implements OnInit {
           distinctUntilChanged(),
           map(term => term.length < 2 ? []
             : this.towns.filter(function (str) { return str.includes(this.search.from.substring(this.search.form.indexOf(","))); })
-                .filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+                .filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 20))
         );
       }
     );

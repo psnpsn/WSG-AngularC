@@ -15,8 +15,8 @@ export class UserService {
 
   private url = 'http://localhost:8090/';
 
-  public getUser(): Observable<User[]> {
-    return this.http.get<User[]>(this.url + 'clients');
+  public getUser(username): Observable<User> {
+    return this.http.get<User>(this.url + 'clients/' + username);
   }
 
   public registerUser(user : User){
